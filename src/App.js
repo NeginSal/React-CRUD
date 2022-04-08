@@ -1,9 +1,14 @@
-
+import React from 'react'
+import AddUser from './components/AddUser';
+import EditUser from './components/EditUser';
+import Home from './components/Home'
 
 function App() {
   return (
     <div className="App">
-      <h1>hjfhgjfhkfhjkgf</h1>
+      <Home/>
+      <AddUser/>
+      <EditUser/>
 
     </div>
   );
