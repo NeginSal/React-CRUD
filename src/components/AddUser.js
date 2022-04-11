@@ -10,7 +10,7 @@ const AddUser = () => {
     return (
         <Form>
             <FormGroup>
-                <label>Name</label>
+                <Label>Name</Label>
                 <Input type='text' palaceholder="Enter Name"></Input>
             </FormGroup>
             <Button type='submit'className='bg-success '>Submit</Button>
