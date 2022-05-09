@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 import {
     ListGroup,
     ListGroupItem,
@@ -6,23 +8,20 @@ import {
 } from 'reactstrap'
 
 const UserList = () => {
+
+    const { users } = useContext(GlobalContext)
+
     return (
         <ListGroup className='mt-4'>
-            <ListGroupItem className='d-flex'>
-                <strong>User One</strong>
-                <div className='ms-auto'>
-                    <Link className='btn btn-warning me-1' to='/edit/1'>Edit</Link>
-                    <Button color='danger'>Delete</Button>
-                </div>
-            </ListGroupItem>
-            <ListGroupItem className='d-flex'>
-                <strong>User One</strong>
-                <div className='ms-auto'>
-                    <Link className='btn btn-warning me-1' to='/edit/2'>Edit</Link>
-                    <Button color='danger'>Delete</Button>
-                </div>
-            </ListGroupItem>
-
+            {users.map((user) =>
+                <ListGroupItem className='d-flex' key={user.id}>
+                    <strong>{user.name}</strong>
+                    <div className='ms-auto'>
+                        <Link className='btn btn-warning me-1' to='/edit/1'>Edit</Link>
+                        <Button color='danger'>Delete</Button>
+                    </div>
+                </ListGroupItem>
+            )}
         </ListGroup>
     );
 }

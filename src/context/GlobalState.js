@@ -4,9 +4,9 @@ import AppReducer from './AppReducer'
 //Initial State
 const initialState = {
     users: [
-        { id: 1, name: userOne },
-        { id: 2, name: userTwo },
-        { id: 3, name: userThree },
+        { id: 1, name: 'userOne' },
+        { id: 2, name: 'userTwo' },
+        { id: 3, name: 'userThree' },
     ]
 }
 
