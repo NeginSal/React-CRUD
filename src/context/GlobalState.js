@@ -17,7 +17,7 @@ export const GlobalContext = createContext(initialState);
 //Provider Component
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
-    
+
     //Actions
     const removeUser = (id) => {
         dispatch({
@@ -25,8 +25,15 @@ export const GlobalProvider = ({ children }) => {
             payload: id
         })
     }
+
+    const addUser = (user) => {
+        dispatch({
+            type: 'ADD_USER',
+            payload: user
+        })
+    }
     return (
-        <GlobalContext.Provider value={{ users: state.users, removeUser }}>
+        <GlobalContext.Provider value={{ users: state.users, removeUser, addUser }}>
             {children}
         </GlobalContext.Provider>
     )
