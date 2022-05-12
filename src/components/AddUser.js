@@ -22,25 +22,18 @@ const AddUser = () => {
             name
         }
         addUser(newUser);
-        setTimeout(() => {
-            navigate('/');
-        }, 1000)
-
+        navigate('/')
     }
-    const handlechange = (e) => {
-        setName(e.target.value);
-    }
-
+    
     return (
-        <Form onClick={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Name</Label>
                 <Input type='text' palaceholder="Enter Name"
-                    value={name} onChange={handlechange}></Input>
+                    value={name} onChange={(e)=>setName(e.target.value)}></Input>
             </FormGroup>
             <Button type='submit' className='bg-success'>Submit</Button>
             <Link to="/" className="btn btn-danger m-2">Cancel</Link>
-
         </Form>
     );
 }
