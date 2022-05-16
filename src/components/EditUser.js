@@ -12,28 +12,18 @@ import {
 
 const EditUser = () => {
 
-    const [selectedUser, setSelectedUser] = useState({
-        id: "",
-        name: ""
-    })
+    const [selectedUser, setSelectedUser] = useState({ id: "", name: ""})
     const { users, editUser } = useContext(GlobalContext)
     const navigate = useNavigate()
-
-    const { currentUserId } = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
-        const userId = currentUserId;
+        const userId = id;
         const selectedUser = users.find(user => String(user.id) === userId);
         if (selectedUser) {
             setSelectedUser(selectedUser);
         }
-    }, [currentUserId, users]);
-    // const { currentUserId } = useParams();
-    // useEffect(() => {
-    //     const userId = currentUserId;
-    //     const selectedUser = users.find(user => user.id === parseInt(userId));
-    //     setSelectedUser(selectedUser);
-    // }, [currentUserId, users])
+    }, [id, users]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,9 +31,6 @@ const EditUser = () => {
         navigate('/');
     };
 
-    // const handleOnChange = (userKey, newValue) => {
-    //     setSelectedUser({ ...selectedUser, [userKey]: newValue })
-    // };
     const handleOnChange = (e) => {
         const { name, value } = e.target;
         setSelectedUser(selectedUser => ({
@@ -52,15 +39,10 @@ const EditUser = () => {
         }));
     };
 
-
     return (
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Name</Label>
-                {/* <Input type='text' palaceholder="Enter Name"
-                    value={selectedUser.name} name="name"
-                    onChange={(e) => handleOnChange("name", e.target.value)}
-                ></Input> */}
                 <Input
                     type='text'
                     palaceholder="Enter Name"
@@ -71,7 +53,6 @@ const EditUser = () => {
             </FormGroup>
             <Button type='submit' className='bg-success '>Edit Name</Button>
             <Link to="/" className="btn btn-danger m-2">Cancel</Link>
-
         </Form>
     );
 }

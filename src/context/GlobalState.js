@@ -3,14 +3,11 @@ import AppReducer from './AppReducer'
 
 //Initial State
 const initialState = {
-    users: [
-
-    ]
+    users: []
 }
 
 //Create Context
 export const GlobalContext = createContext(initialState);
-
 
 //Provider Component
 export const GlobalProvider = ({ children }) => {
